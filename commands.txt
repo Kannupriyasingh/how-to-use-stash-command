@@ -1,0 +1,23 @@
+git branch
+
+git status
+
+git add .
+
+git status
+
+git stash 
+
+git checkout {new-branch-name-from-which-you-want-to-deploy-on-docker}
+
+git pull origin {same-new-branch-which-you-used-above}
+
+./deploy-config/kube-deploy --namespace nl-services --serviceFeature ffel-21692 --env test2 --teamName nlservices --mavenCmd 'mvn clean package -DfinalName=services -DskipTests'
+
+git branch
+
+git checkout {your-old-branch-from-where-you-stashed-to-deploy-your-new-branch-changes}
+
+git stash pop
+
+git status
